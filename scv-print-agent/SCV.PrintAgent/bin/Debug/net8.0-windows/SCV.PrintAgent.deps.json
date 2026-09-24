@@ -1,0 +1,359 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SCV.PrintAgent/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Client": "8.0.30",
+          "Microsoft.Web.WebView2": "1.0.4191.47",
+          "Microsoft.Web.WebView2.Core": "1.0.4191.47",
+          "Microsoft.Web.WebView2.WinForms": "1.0.4191.47"
+        },
+        "runtime": {
+          "SCV.PrintAgent.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Connections.Abstractions/8.0.30": {
+        "dependencies": {
+          "Microsoft.Extensions.Features": "8.0.30",
+          "System.IO.Pipelines": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Connections.Client/8.0.30": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Connections.Common": "8.0.30",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Http.Connections.Client.dll": {
+            "assemblyVersion": "8.0.30.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Connections.Common/8.0.30": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.30"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Http.Connections.Common.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Client/8.0.30": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Connections.Client": "8.0.30",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "8.0.30"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.SignalR.Client.dll": {
+            "assemblyVersion": "8.0.30.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Client.Core/8.0.30": {
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "8.0.30",
+          "Microsoft.AspNetCore.SignalR.Protocols.Json": "8.0.30",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Logging": "8.0.1",
+          "System.Threading.Channels": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.SignalR.Client.Core.dll": {
+            "assemblyVersion": "8.0.30.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Common/8.0.30": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "8.0.30",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.SignalR.Common.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Protocols.Json/8.0.30": {
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "8.0.30"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Features/8.0.30": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Features.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.3026.37304"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1325.6609"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.224.6711"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/8.0.0": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.4191.47": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.0.4191.47"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.4191.47"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.4191.47"
+          }
+        }
+      },
+      "System.IO.Pipelines/8.0.0": {
+        "runtime": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "System.Threading.Channels/8.0.0": {},
+      "Microsoft.Web.WebView2.Core/1.0.4191.47": {
+        "runtime": {
+          "Microsoft.Web.WebView2.Core.dll": {
+            "assemblyVersion": "1.0.4191.47",
+            "fileVersion": "1.0.4191.47"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.WinForms/1.0.4191.47": {
+        "runtime": {
+          "Microsoft.Web.WebView2.WinForms.dll": {
+            "assemblyVersion": "1.0.4191.47",
+            "fileVersion": "1.0.4191.47"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SCV.PrintAgent/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Connections.Abstractions/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZVqidIUODni7nF9hRGh+yODqtqygMkNm47bC8O79bU6oOIubGwJq7Jtn9K8n5ZCcfWGpobyhcdbH4CVpkruJzA==",
+      "path": "microsoft.aspnetcore.connections.abstractions/8.0.30",
+      "hashPath": "microsoft.aspnetcore.connections.abstractions.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Connections.Client/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-67OvJkmJCa4H1nDYDMwbRS9nE/7NEnKWRuWpW34zl57uE3XPh0z0qCZSNPBVwi9V51pb6Ik6qzaGkiQufXskcw==",
+      "path": "microsoft.aspnetcore.http.connections.client/8.0.30",
+      "hashPath": "microsoft.aspnetcore.http.connections.client.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Connections.Common/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aGPes3G0T3ZNTMkvB44VkJwRmTsC6Iu0pYLafsgeApzJGQiK8A2egpPevhc0lL3AcihFCLa612NGWS3GPZEGtw==",
+      "path": "microsoft.aspnetcore.http.connections.common/8.0.30",
+      "hashPath": "microsoft.aspnetcore.http.connections.common.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Client/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SbLt2qlcHxEeOHpivNAVaYH0QLSHCJenw6akyVInouGstbOa3cx8SaBmr43W1JUOupMmhmP+OaPefrWRxqnqMQ==",
+      "path": "microsoft.aspnetcore.signalr.client/8.0.30",
+      "hashPath": "microsoft.aspnetcore.signalr.client.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Client.Core/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5fv8/PVPd8BYEOg4AXBw9qs6EeU37X5f2R5bUQz+PbcjeIUiRdROaIVUJWAFT8u5m7gmY/1vO2yF/mZ4bzvfpw==",
+      "path": "microsoft.aspnetcore.signalr.client.core/8.0.30",
+      "hashPath": "microsoft.aspnetcore.signalr.client.core.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Common/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g34XIYbgs0gL6rsOqCfl0p1v1Rje6FmJLkrB/Kmq8jUqmKGBZAav7WdXtockse6s/DEwd441m3POhPgc387hjw==",
+      "path": "microsoft.aspnetcore.signalr.common/8.0.30",
+      "hashPath": "microsoft.aspnetcore.signalr.common.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Protocols.Json/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pmpAJTussog92AsoojbaIlvEcwg44tiBBPbfEQTgCzr2KJOvzmjS47p4QEV3ajc0WYfRQ45cucbRW7qDZiajjw==",
+      "path": "microsoft.aspnetcore.signalr.protocols.json/8.0.30",
+      "hashPath": "microsoft.aspnetcore.signalr.protocols.json.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BmANAnR5Xd4Oqw7yQ75xOAYODybZQRzdeNucg7kS5wWKd2PNnMdYtJ2Vciy0QLylRmv42DGl5+AFL9izA6F1Rw==",
+      "path": "microsoft.extensions.dependencyinjection/8.0.1",
+      "hashPath": "microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Features/8.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CXwORiSyNHorKcqtd+WiQ7ewKUEslV3alNxD1rB/czAwlmP6C4h7HG+V5or9eQSsbpJNSIiEOhFXVVSbbiDJBA==",
+      "path": "microsoft.extensions.features/8.0.30",
+      "hashPath": "microsoft.extensions.features.8.0.30.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4x+pzsQEbqxhNf1QYRr5TDkLP9UsLT3A6MdRKDDEgrW7h1ljiEPgTNhKYUhNCCAaVpQECVQ+onA91PTPnIp6Lw==",
+      "path": "microsoft.extensions.logging/8.0.1",
+      "hashPath": "microsoft.extensions.logging.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dL0QGToTxggRLMYY4ZYX5AMwBb+byQBd/5dMiZE07Nv73o6I5Are3C7eQTh7K2+A4ct0PVISSr7TZANbiNb2yQ==",
+      "path": "microsoft.extensions.logging.abstractions/8.0.3",
+      "hashPath": "microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dWGKvhFybsaZpGmzkGCbNNwBD1rVlWzrZKANLW/CcbFJpCEceMCGzT7zZwHOGBCbwM0SzBuceMj5HN1LKV1QqA==",
+      "path": "microsoft.extensions.options/8.0.2",
+      "hashPath": "microsoft.extensions.options.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
+      "path": "microsoft.extensions.primitives/8.0.0",
+      "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2/1.0.4191.47": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Snb6mlTpuz6ZFjWMwIdg28Xp6kAUMy3zaLUyGbFSaw+/AJKlwoX8EiaWJ1eUMfKyJHksPkFjJHl1LIB7kX+0AQ==",
+      "path": "microsoft.web.webview2/1.0.4191.47",
+      "hashPath": "microsoft.web.webview2.1.0.4191.47.nupkg.sha512"
+    },
+    "System.IO.Pipelines/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
+      "path": "system.io.pipelines/8.0.0",
+      "hashPath": "system.io.pipelines.8.0.0.nupkg.sha512"
+    },
+    "System.Threading.Channels/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CMaFr7v+57RW7uZfZkPExsPB6ljwzhjACWW1gfU35Y56rk72B/Wu+sTqxVmGSk4SFUlPc3cjeKND0zktziyjBA==",
+      "path": "system.threading.channels/8.0.0",
+      "hashPath": "system.threading.channels.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2.Core/1.0.4191.47": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Web.WebView2.WinForms/1.0.4191.47": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

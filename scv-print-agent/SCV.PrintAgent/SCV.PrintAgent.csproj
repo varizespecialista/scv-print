@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>SCV.PrintAgent</AssemblyName>
+    <RootNamespace>SCV.PrintAgent</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.30" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!--
+    Microsoft.Web.WebView2 agrega también su wrapper WPF aunque este proyecto
+    usa únicamente WinForms. Ese ensamblado WPF provoca el warning MSB3277
+    por WindowsBase 4.0/5.0. Se elimina solo la referencia WPF no utilizada.
+  -->
+  <Target Name="RemoveUnusedWebView2WpfReference"
+          BeforeTargets="ResolveAssemblyReferences"
+          Condition="'$(UseWPF)' != 'true'">
+    <ItemGroup>
+      <Reference Remove="@(Reference)"
+                 Condition="'%(Reference.Filename)' == 'Microsoft.Web.WebView2.Wpf'" />
+    </ItemGroup>
+  </Target>
+</Project>
