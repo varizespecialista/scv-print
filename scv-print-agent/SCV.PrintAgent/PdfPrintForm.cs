@@ -18,8 +18,11 @@ public sealed class PdfPrintForm : Form
         Controls.Add(_webView);
     }
 
-    public Task PrintPdfAsync(byte[] content, string printerName, int copies, CancellationToken cancellationToken)
+    public Task PrintPdfAsync(byte[] content, string printerName, string format, int copies, CancellationToken cancellationToken)
     {
+        if (string.IsNullOrWhiteSpace(format))
+            throw new ArgumentException("El formato de impresión es obligatorio.", nameof(format));
+
         var tcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
         BeginInvoke(new Action(async () =>
         {
@@ -37,6 +40,16 @@ public sealed class PdfPrintForm : Form
                         var settings = _webView.CoreWebView2.Environment.CreatePrintSettings();
                         settings.PrinterName = printerName;
                         settings.Copies = Math.Clamp(copies, 1, 20);
+
+                        // WebView2 usa ~1 cm de margen por defecto. En tickets de
+                        // 58/59 mm ese margen obliga a reducir el PDF completo y
+                        // degrada especialmente las letras pequeñas. El PDF de
+                        // FastReport ya contiene sus propios márgenes físicos.
+                        settings.MarginTop = 0;
+                        settings.MarginBottom = 0;
+                        settings.MarginLeft = 0;
+                        settings.MarginRight = 0;
+                        settings.ScaleFactor = 1.0;
                         settings.ShouldPrintBackgrounds = true;
                         settings.ShouldPrintHeaderAndFooter = false;
                         var status = await _webView.CoreWebView2.PrintAsync(settings);

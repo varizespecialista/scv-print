@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.SignalR.Client;
 
@@ -10,6 +11,8 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
     private readonly HttpClient _http;
     private readonly HubConnection _hub;
     private readonly SemaphoreSlim _processGate = new(1, 1);
+    private readonly CancellationTokenSource _disposeCts = new();
+    private Task? _pollTask;
 
     public event Action<string>? StatusChanged;
 
@@ -70,8 +73,12 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
     public async Task StartAsync(CancellationToken cancellationToken)
     {
         StatusChanged?.Invoke("Conectando...");
-        await _hub.StartAsync(cancellationToken);
+
+        if (_hub.State == HubConnectionState.Disconnected)
+            await _hub.StartAsync(cancellationToken);
+
         await RegisterAndDrainAsync(cancellationToken);
+        _pollTask ??= PollPendingJobsAsync(_disposeCts.Token);
     }
 
     public async Task RegisterAndDrainAsync(CancellationToken cancellationToken = default)
@@ -94,6 +101,11 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
         response.EnsureSuccessStatusCode();
         StatusChanged?.Invoke($"Conectado · {registration.Printers.Count} impresoras");
 
+        await DrainPendingJobsAsync(cancellationToken);
+    }
+
+    private async Task DrainPendingJobsAsync(CancellationToken cancellationToken)
+    {
         var pending = await _http.GetFromJsonAsync<PrintJob[]>(
             "api/impresion/agent/jobs/pending",
             cancellationToken) ?? [];
@@ -101,6 +113,35 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
         foreach (var job in pending)
         {
             await ProcessJobSafeAsync(job.Id, cancellationToken);
+        }
+    }
+
+    private async Task PollPendingJobsAsync(CancellationToken cancellationToken)
+    {
+        using var timer = new PeriodicTimer(TimeSpan.FromSeconds(5));
+
+        try
+        {
+            while (await timer.WaitForNextTickAsync(cancellationToken))
+            {
+                try
+                {
+                    await DrainPendingJobsAsync(cancellationToken);
+                }
+                catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
+                {
+                    break;
+                }
+                catch
+                {
+                    // SignalR sigue siendo la vía inmediata. Este polling es solo
+                    // una red de seguridad para trabajos cuya notificación se perdió.
+                }
+            }
+        }
+        catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
+        {
+            // Cierre normal del agente.
         }
     }
 
@@ -131,7 +172,10 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
             if (job is null)
                 return;
 
-            await SetStatusAsync(jobId, "IMPRIMIENDO", null, cancellationToken);
+            // El claim es atómico en backend. Si existen dos instancias con el
+            // mismo AgentCode, únicamente una obtiene el trabajo y lo imprime.
+            if (!await TryClaimJobAsync(jobId, cancellationToken))
+                return;
 
             try
             {
@@ -142,6 +186,7 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
                 await _printForm.PrintPdfAsync(
                     bytes,
                     job.PrinterName,
+                    job.Format,
                     job.Copies,
                     cancellationToken);
 
@@ -168,6 +213,22 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
         }
     }
 
+    private async Task<bool> TryClaimJobAsync(
+        long jobId,
+        CancellationToken cancellationToken)
+    {
+        using var response = await _http.PostAsync(
+            $"api/impresion/agent/jobs/{jobId}/claim",
+            content: null,
+            cancellationToken);
+
+        if (response.StatusCode == HttpStatusCode.Conflict)
+            return false;
+
+        response.EnsureSuccessStatusCode();
+        return true;
+    }
+
     private async Task SetStatusAsync(
         long jobId,
         string status,
@@ -184,8 +245,17 @@ public sealed class ScvPrintAgentClient : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
+        _disposeCts.Cancel();
+
+        if (_pollTask is not null)
+        {
+            try { await _pollTask; }
+            catch (OperationCanceledException) { }
+        }
+
         await _hub.DisposeAsync();
         _http.Dispose();
         _processGate.Dispose();
+        _disposeCts.Dispose();
     }
 }

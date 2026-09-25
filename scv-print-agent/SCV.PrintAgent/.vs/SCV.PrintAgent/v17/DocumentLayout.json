@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-09-24T16:04:05.631Z",
               "EditorCaption": ""
@@ -43,8 +43,7 @@
               "RelativeToolTip": "ScvPrintAgentClient.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAAIwIYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-24T16:03:31.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-24T16:03:31.463Z"
             }
           ]
         }
