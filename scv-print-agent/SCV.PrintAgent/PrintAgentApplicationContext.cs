@@ -8,7 +8,7 @@ public sealed class PrintAgentApplicationContext : ApplicationContext
 
     public PrintAgentApplicationContext(AgentSettings settings)
     {
-        _printForm = new PdfPrintForm();
+        _printForm = new PdfPrintForm(settings);
         _printForm.Show();
 
         var menu = new ContextMenuStrip();

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SCV.PrintAgent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+5cf582d1bdcdd4d91bd5444c1fb1383ef01d4817")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+2617cf3e5398b3302250ffe5995178eab8692db1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SCV.PrintAgent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SCV.PrintAgent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]

@@ -1,0 +1,8 @@
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.csproj.AssemblyReference.cache
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.PdfPrintForm.resources
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.csproj.GenerateResource.cache
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.GeneratedMSBuildEditorConfig.editorconfig
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.AssemblyInfoInputs.cache
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.AssemblyInfo.cs
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.csproj.CoreCompileInputs.cache
+D:\CLINICA-VARIZ\scv-print\scv-print\scv-print-agent\SCV.PrintAgent\obj\Debug\net8.0-windows10.0.19041.0\SCV.PrintAgent.sourcelink.json
