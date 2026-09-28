@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{438410C5-F391-EDF7-0C12-21650A415CF9}|SCV.PrintAgent.csproj|d:\\clinica-variz\\scv-print\\scv-print\\scv-print-agent\\scv.printagent\\ticketpdfprinter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{438410C5-F391-EDF7-0C12-21650A415CF9}|SCV.PrintAgent.csproj|solutionrelative:ticketpdfprinter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\TicketPdfPrinter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TicketPdfPrinter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{438410C5-F391-EDF7-0C12-21650A415CF9}|SCV.PrintAgent.csproj|d:\\clinica-variz\\scv-print\\scv-print\\scv-print-agent\\scv.printagent\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{438410C5-F391-EDF7-0C12-21650A415CF9}|SCV.PrintAgent.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{438410C5-F391-EDF7-0C12-21650A415CF9}|SCV.PrintAgent.csproj|d:\\clinica-variz\\scv-print\\scv-print\\scv-print-agent\\scv.printagent\\scvprintagentclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{438410C5-F391-EDF7-0C12-21650A415CF9}|SCV.PrintAgent.csproj|solutionrelative:scvprintagentclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\ScvPrintAgentClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ScvPrintAgentClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "TicketPdfPrinter.cs",
               "ToolTip": "D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\TicketPdfPrinter.cs",
               "RelativeToolTip": "TicketPdfPrinter.cs",
-              "ViewState": "AgIAAFcBAAAAAAAAAADwv2kBAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-28T15:01:50.812Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-24T16:04:05.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-24T16:04:05.631Z"
             },
             {
               "$type": "Document",

@@ -10,36 +10,22 @@ public sealed class AgentSettings
     public string? BranchCode { get; init; }
     public string SharedKey { get; init; } = string.Empty;
 
-    // Ajustes de impresión térmica.
-    // ESC_POS es el modo recomendado para impresoras térmicas compatibles.
-    public string TicketPrintMode { get; init; } = "ESC_POS";
+    // Escala observada como correcta en la impresión manual de Chrome/WebView.
+    // 0.82 equivale a 82%.
+    public double TicketScaleFactor { get; init; } = 0.82;
 
-    // 384 dots = cabezal típico de 58 mm a 203 DPI.
-    public int TicketDotsWidth { get; init; } = 360;
+    // WebView2 usará el tamaño de papel configurado en el driver de Windows
+    // (por ejemplo DIR-E58: 58(48) x 297 mm).
+    public bool TicketUsePrinterDefaultMedia { get; init; } = true;
 
-    // Render interno a mayor resolución antes de recortar y ajustar.
-    public int TicketRenderScale { get; init; } = 2;
+    // Márgenes adicionales del motor WebView2.
+    // La plantilla FastReport ya contiene sus propios márgenes.
+    public double TicketMarginLeftMm { get; init; } = 0.0;
+    public double TicketMarginRightMm { get; init; } = 0.0;
+    public double TicketMarginTopMm { get; init; } = 0.0;
+    public double TicketMarginBottomMm { get; init; } = 0.0;
 
-    // Margen final de seguridad a izquierda y derecha del cabezal.
-    public int TicketHorizontalPaddingDots { get; init; } = 6;
-
-    // Guarda las imágenes exactas antes/después del normalizado para diagnóstico.
     public bool TicketSaveDiagnostics { get; init; } = true;
-
-    // Se envía el raster por bloques para no saturar el buffer de la térmica.
-    public int TicketEscPosChunkRows { get; init; } = 256;
-
-    // Líneas de avance al finalizar cada copia.
-    public int TicketFeedLines { get; init; } = 3;
-
-    // Se mantienen para modo GDI y para cálculo de padding vertical.
-    public double TicketPaperWidthMm { get; init; } = 58.0;
-    public double TicketPrintableWidthMm { get; init; } = 48.0;
-    public int TicketRenderDpi { get; init; } = 203;
-    public int TicketWhiteThreshold { get; init; } = 248;
-    public int TicketBlackThreshold { get; init; } = 220;
-    public double TicketTopPaddingMm { get; init; } = 1.0;
-    public double TicketBottomPaddingMm { get; init; } = 3.0;
 
     public static AgentSettings Load()
     {
@@ -93,50 +79,26 @@ public sealed class AgentSettings
                         ? key
                         : settings.SharedKey.Trim(),
 
-            TicketPrintMode =
-                string.IsNullOrWhiteSpace(
-                    settings.TicketPrintMode)
-                    ? "ESC_POS"
-                    : settings.TicketPrintMode.Trim(),
+            TicketScaleFactor =
+                settings.TicketScaleFactor,
 
-            TicketDotsWidth =
-                settings.TicketDotsWidth,
+            TicketUsePrinterDefaultMedia =
+                settings.TicketUsePrinterDefaultMedia,
 
-            TicketRenderScale =
-                settings.TicketRenderScale,
+            TicketMarginLeftMm =
+                settings.TicketMarginLeftMm,
 
-            TicketHorizontalPaddingDots =
-                settings.TicketHorizontalPaddingDots,
+            TicketMarginRightMm =
+                settings.TicketMarginRightMm,
+
+            TicketMarginTopMm =
+                settings.TicketMarginTopMm,
+
+            TicketMarginBottomMm =
+                settings.TicketMarginBottomMm,
 
             TicketSaveDiagnostics =
-                settings.TicketSaveDiagnostics,
-
-            TicketEscPosChunkRows =
-                settings.TicketEscPosChunkRows,
-
-            TicketFeedLines =
-                settings.TicketFeedLines,
-
-            TicketPaperWidthMm =
-                settings.TicketPaperWidthMm,
-
-            TicketPrintableWidthMm =
-                settings.TicketPrintableWidthMm,
-
-            TicketRenderDpi =
-                settings.TicketRenderDpi,
-
-            TicketWhiteThreshold =
-                settings.TicketWhiteThreshold,
-
-            TicketBlackThreshold =
-                settings.TicketBlackThreshold,
-
-            TicketTopPaddingMm =
-                settings.TicketTopPaddingMm,
-
-            TicketBottomPaddingMm =
-                settings.TicketBottomPaddingMm
+                settings.TicketSaveDiagnostics
         };
     }
 
@@ -151,98 +113,32 @@ public sealed class AgentSettings
                 "ApiBaseUrl no es una URL válida.");
         }
 
-        if (string.IsNullOrWhiteSpace(
-                AgentCode))
+        if (string.IsNullOrWhiteSpace(AgentCode))
         {
             throw new InvalidOperationException(
                 "AgentCode es obligatorio.");
         }
 
-        if (string.IsNullOrWhiteSpace(
-                SharedKey)
+        if (string.IsNullOrWhiteSpace(SharedKey)
             || SharedKey == "CAMBIAR_EN_PRODUCCION")
         {
             throw new InvalidOperationException(
                 "Configure SharedKey antes de iniciar SCV Print Agent.");
         }
 
-        if (!string.Equals(
-                TicketPrintMode,
-                "ESC_POS",
-                StringComparison.OrdinalIgnoreCase)
-            && !string.Equals(
-                TicketPrintMode,
-                "GDI",
-                StringComparison.OrdinalIgnoreCase))
+        if (TicketScaleFactor is < 0.1 or > 2.0)
         {
             throw new InvalidOperationException(
-                "TicketPrintMode debe ser ESC_POS o GDI.");
+                "TicketScaleFactor debe estar entre 0.1 y 2.0.");
         }
 
-        if (TicketDotsWidth is < 128 or > 2048)
+        if (TicketMarginLeftMm < 0
+            || TicketMarginRightMm < 0
+            || TicketMarginTopMm < 0
+            || TicketMarginBottomMm < 0)
         {
             throw new InvalidOperationException(
-                "TicketDotsWidth debe estar entre 128 y 2048 dots.");
-        }
-
-        if (TicketRenderScale is < 1 or > 4)
-        {
-            throw new InvalidOperationException(
-                "TicketRenderScale debe estar entre 1 y 4.");
-        }
-
-        if (TicketHorizontalPaddingDots is < 0 or > 64)
-        {
-            throw new InvalidOperationException(
-                "TicketHorizontalPaddingDots debe estar entre 0 y 64.");
-        }
-
-        if (TicketEscPosChunkRows is < 24 or > 2048)
-        {
-            throw new InvalidOperationException(
-                "TicketEscPosChunkRows debe estar entre 24 y 2048 filas.");
-        }
-
-        if (TicketFeedLines is < 0 or > 20)
-        {
-            throw new InvalidOperationException(
-                "TicketFeedLines debe estar entre 0 y 20.");
-        }
-
-        if (TicketPaperWidthMm is < 40 or > 120)
-        {
-            throw new InvalidOperationException(
-                "TicketPaperWidthMm debe estar entre 40 y 120 mm.");
-        }
-
-        if (TicketPrintableWidthMm is < 30 or > 110)
-        {
-            throw new InvalidOperationException(
-                "TicketPrintableWidthMm debe estar entre 30 y 110 mm.");
-        }
-
-        if (TicketPrintableWidthMm > TicketPaperWidthMm)
-        {
-            throw new InvalidOperationException(
-                "TicketPrintableWidthMm no puede ser mayor que TicketPaperWidthMm.");
-        }
-
-        if (TicketRenderDpi is < 150 or > 600)
-        {
-            throw new InvalidOperationException(
-                "TicketRenderDpi debe estar entre 150 y 600 DPI.");
-        }
-
-        if (TicketWhiteThreshold is < 200 or > 255)
-        {
-            throw new InvalidOperationException(
-                "TicketWhiteThreshold debe estar entre 200 y 255.");
-        }
-
-        if (TicketBlackThreshold is < 80 or > 250)
-        {
-            throw new InvalidOperationException(
-                "TicketBlackThreshold debe estar entre 80 y 250.");
+                "Los márgenes del ticket no pueden ser negativos.");
         }
     }
 }

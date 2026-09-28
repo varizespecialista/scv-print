@@ -7,9 +7,9 @@
     <Nullable>enable</Nullable>
     <AssemblyName>SCV.PrintAgent</AssemblyName>
     <RootNamespace>SCV.PrintAgent</RootNamespace>
-    <Version>1.6.0</Version>
-    <AssemblyVersion>1.6.0.0</AssemblyVersion>
-    <FileVersion>1.6.0.0</FileVersion>
+    <Version>2.0.0</Version>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,11 +23,6 @@
     </None>
   </ItemGroup>
 
-  <!--
-    Microsoft.Web.WebView2 agrega también su wrapper WPF aunque este proyecto
-    usa únicamente WinForms. Ese ensamblado WPF provoca el warning MSB3277
-    por WindowsBase 4.0/5.0. Se elimina solo la referencia WPF no utilizada.
-  -->
   <Target Name="RemoveUnusedWebView2WpfReference"
           BeforeTargets="ResolveAssemblyReferences"
           Condition="'$(UseWPF)' != 'true'">

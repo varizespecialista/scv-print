@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("SCV.PrintAgent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.3.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.3.0+97d56ff8b53894be5630761208ebc3c37f2bc862")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.8.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.8.0+a2b8ea9923b1eb4cdeb40b073525c5c7110e9050")]
 [assembly: System.Reflection.AssemblyProductAttribute("SCV.PrintAgent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SCV.PrintAgent")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.3.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.8.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows10.0.19041.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows10.0.19041.0")]
 
