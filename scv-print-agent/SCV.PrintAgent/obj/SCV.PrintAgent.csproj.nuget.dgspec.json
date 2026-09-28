@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\SCV.PrintAgent.csproj": {
-      "version": "1.2.0",
+      "version": "1.6.0",
       "restore": {
         "projectUniqueName": "D:\\CLINICA-VARIZ\\scv-print\\scv-print\\scv-print-agent\\SCV.PrintAgent\\SCV.PrintAgent.csproj",
         "projectName": "SCV.PrintAgent",
@@ -47,7 +47,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0-windows10.0.19041": {
@@ -75,8 +75,20 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.26, 8.0.26]"
+            },
+            {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.19041.57, 10.0.19041.57]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.26, 8.0.26]"
             }
           ],
           "frameworkReferences": {
@@ -90,7 +102,12 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }
